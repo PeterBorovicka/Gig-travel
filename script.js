@@ -2,17 +2,18 @@
    GigTravel — script.js
    • Particle canvas (hero background)
    • Sticky nav with scroll detection
+   • Nav scroll-spy (active section highlighting)
    • Counter animation for stat numbers
    • Scroll-reveal for .reveal elements
    • Pricing monthly / annual toggle
    • Mobile nav burger
+   • FAQ accordion
+   • CTA email form (mock submit)
+   • Hero mockup mouse parallax
    ================================================================ */
 
 (function () {
   'use strict';
-
-  /* ── Utility: lerp ──────────────────────────────────────────── */
-  function lerp(a, b, t) { return a + (b - a) * t; }
 
   /* ──────────────────────────────────────────────────────────────
      1. HERO PARTICLE CANVAS
@@ -115,7 +116,34 @@
   handleNavScroll();
 
   /* ──────────────────────────────────────────────────────────────
-     3. MOBILE BURGER MENU
+     3. NAV SCROLL-SPY
+  ────────────────────────────────────────────────────────────── */
+  const navAnchorLinks = document.querySelectorAll('.nav__links a[href^="#"]');
+  const spySections    = Array.from(navAnchorLinks)
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  function updateActiveLink() {
+    const scrollMid = window.scrollY + window.innerHeight * 0.35;
+    let active = null;
+
+    spySections.forEach(section => {
+      if (section.offsetTop <= scrollMid) {
+        active = section.id;
+      }
+    });
+
+    navAnchorLinks.forEach(a => {
+      const isActive = a.getAttribute('href') === `#${active}`;
+      a.classList.toggle('active', isActive);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  /* ──────────────────────────────────────────────────────────────
+     4. MOBILE BURGER MENU
   ────────────────────────────────────────────────────────────── */
   const burger   = document.getElementById('navBurger');
   const navLinks = document.getElementById('navLinks');
@@ -123,7 +151,6 @@
   burger.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     burger.setAttribute('aria-expanded', isOpen);
-    // Animate burger lines
     const spans = burger.querySelectorAll('span');
     if (isOpen) {
       spans[0].style.cssText = 'transform:translateY(7px) rotate(45deg)';
@@ -134,7 +161,6 @@
     }
   });
 
-  // Close menu when a link is clicked
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
@@ -143,7 +169,7 @@
   });
 
   /* ──────────────────────────────────────────────────────────────
-     4. COUNTER ANIMATION (hero stats)
+     5. COUNTER ANIMATION (hero stats)
   ────────────────────────────────────────────────────────────── */
   function animateCounter(el) {
     const target  = parseInt(el.dataset.target, 10);
@@ -166,7 +192,7 @@
   }
 
   /* ──────────────────────────────────────────────────────────────
-     5. SCROLL REVEAL + counter trigger
+     6. SCROLL REVEAL + counter trigger
   ────────────────────────────────────────────────────────────── */
   const revealEls = document.querySelectorAll('.reveal');
   const statNums  = document.querySelectorAll('.stat__num[data-target]');
@@ -176,7 +202,6 @@
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Staggered delay for sibling elements
           const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
           const idx = siblings.indexOf(entry.target);
           entry.target.style.transitionDelay = `${idx * 0.08}s`;
@@ -190,7 +215,6 @@
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // Trigger counters when hero stats scroll into view
   const statsSection = document.querySelector('.hero__stats');
   if (statsSection) {
     const statsObserver = new IntersectionObserver(
@@ -207,9 +231,9 @@
   }
 
   /* ──────────────────────────────────────────────────────────────
-     6. PRICING TOGGLE (monthly / annual)
+     7. PRICING TOGGLE (monthly / annual)
   ────────────────────────────────────────────────────────────── */
-  const toggleBtn   = document.getElementById('pricingToggle');
+  const toggleBtn    = document.getElementById('pricingToggle');
   const priceAmounts = document.querySelectorAll('.pcard__amount');
 
   let isAnnual = false;
@@ -220,7 +244,6 @@
         ? parseInt(el.dataset.annual, 10)
         : parseInt(el.dataset.monthly, 10);
 
-      // Flash animation
       el.style.opacity = '0';
       el.style.transform = 'translateY(8px)';
       setTimeout(() => {
@@ -239,7 +262,100 @@
   });
 
   /* ──────────────────────────────────────────────────────────────
-     7. SMOOTH SCROLL for anchor links
+     8. FAQ ACCORDION
+  ────────────────────────────────────────────────────────────── */
+  const faqItems = document.querySelectorAll('[data-faq]');
+
+  faqItems.forEach(item => {
+    const btn    = item.querySelector('.faq-item__q');
+    const answer = item.querySelector('.faq-item__a');
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.hasAttribute('data-open');
+
+      // Close all others
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.removeAttribute('data-open');
+          const otherA = other.querySelector('.faq-item__a');
+          const otherBtn = other.querySelector('.faq-item__q');
+          otherA.style.maxHeight = '0';
+          otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        item.removeAttribute('data-open');
+        answer.style.maxHeight = '0';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.setAttribute('data-open', '');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ──────────────────────────────────────────────────────────────
+     9. CTA EMAIL FORM
+  ────────────────────────────────────────────────────────────── */
+  const ctaForm  = document.getElementById('ctaForm');
+  const ctaNote  = document.getElementById('ctaFormNote');
+
+  if (ctaForm) {
+    ctaForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = ctaForm.querySelector('[type="email"]');
+      const email = emailInput.value.trim();
+
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(email)) {
+        ctaNote.textContent = 'Please enter a valid email address.';
+        ctaNote.className = 'cta-form__note cta-form__note--error';
+        emailInput.focus();
+        return;
+      }
+
+      // Simulate async submission
+      const submitBtn = ctaForm.querySelector('.cta-form__submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      setTimeout(() => {
+        ctaNote.textContent = '🎉 You\'re on the list! We\'ll be in touch very soon.';
+        ctaNote.className = 'cta-form__note cta-form__note--success';
+        emailInput.value = '';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Get early access <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      }, 900);
+    });
+  }
+
+  /* ──────────────────────────────────────────────────────────────
+     10. HERO MOCKUP MOUSE PARALLAX
+  ────────────────────────────────────────────────────────────── */
+  const mockupWrap = document.getElementById('heroMockup');
+
+  if (mockupWrap) {
+    const heroSection = document.getElementById('hero');
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const cx   = rect.left + rect.width  / 2;
+      const cy   = rect.top  + rect.height / 2;
+      const dx   = (e.clientX - cx) / rect.width;
+      const dy   = (e.clientY - cy) / rect.height;
+      mockupWrap.style.transform =
+        `perspective(900px) rotateY(${dx * 6}deg) rotateX(${-dy * 4}deg) translateY(-6px)`;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      mockupWrap.style.transform = '';
+    });
+  }
+
+  /* ──────────────────────────────────────────────────────────────
+     11. SMOOTH SCROLL for anchor links
   ────────────────────────────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
