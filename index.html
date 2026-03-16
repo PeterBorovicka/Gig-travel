@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GigTravel — Work From Anywhere, Effortlessly</title>
+  <meta name="description" content="The all-in-one platform for gig workers to find, book, and thrive in remote-friendly destinations worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#" class="nav__logo">
+        <span class="logo-icon">✈</span>
+        GigTravel
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__cta">
+        <a href="#pricing" class="btn btn--ghost">Log in</a>
+        <a href="#pricing" class="btn btn--primary">Get started free</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ──────────────────────────────────────────── -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__glow hero__glow--left"></div>
+      <div class="hero__glow hero__glow--right"></div>
+
+      <div class="container hero__inner">
+
+        <!-- Left: copy -->
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="badge-dot"></span>
+            Now supporting 120+ countries &amp; territories
+          </div>
+
+          <h1 class="hero__headline">
+            <span class="headline-line" data-line="1">Work remotely.</span>
+            <span class="headline-line gradient-text" data-line="2">Live boldly.</span>
+            <span class="headline-line" data-line="3">Travel smart.</span>
+          </h1>
+
+          <p class="hero__sub">
+            GigTravel pairs gig workers with visa intel, co-working spaces, tax tools,
+            and curated stays — all in one gorgeous dashboard.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#pricing" class="btn btn--primary btn--lg">
+              Start your journey
+              <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#how-it-works" class="btn btn--ghost btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M10 8l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              See how it works
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__num" data-target="48000">0</span>
+              <span class="stat__label">Active nomads</span>
+            </div>
+            <div class="stat__divider"></div>
+            <div class="stat">
+              <span class="stat__num" data-target="120">0</span>
+              <span class="stat__label">Countries covered</span>
+            </div>
+            <div class="stat__divider"></div>
+            <div class="stat">
+              <span class="stat__num" data-target="98">0</span>
+              <span class="stat__label">% satisfaction rate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: app mockup -->
+        <div class="hero__mockup-wrap" aria-hidden="true">
+          <div class="hero__mockup" id="heroMockup">
+            <!-- Browser chrome -->
+            <div class="mockup-chrome">
+              <div class="mockup-chrome__dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="mockup-chrome__url">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1a5 5 0 1 0 0 10A5 5 0 0 0 6 1z" stroke="#4ade80" stroke-width="1.2"/><path d="M6 3.5v2.75L7.5 7.5" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round"/></svg>
+                app.gigtravel.com
+              </div>
+            </div>
+            <!-- App layout -->
+            <div class="mockup-body">
+              <!-- Sidebar -->
+              <div class="mockup-sidebar">
+                <div class="mockup-nav-item mockup-nav-item--active">
+                  <span>🗺</span>
+                  <span class="mockup-nav-label">Discover</span>
+                </div>
+                <div class="mockup-nav-item">
+                  <span>🏢</span>
+                  <span class="mockup-nav-label">Co-work</span>
+                </div>
+                <div class="mockup-nav-item">
+                  <span>💸</span>
+                  <span class="mockup-nav-label">Finance</span>
+                </div>
+                <div class="mockup-nav-item">
+                  <span>🛂</span>
+                  <span class="mockup-nav-label">Visas</span>
+                </div>
+                <div class="mockup-nav-item">
+                  <span>🤝</span>
+                  <span class="mockup-nav-label">Community</span>
+                </div>
+              </div>
+              <!-- Main content -->
+              <div class="mockup-main">
+                <!-- Trip card -->
+                <div class="mockup-trip-card">
+                  <div class="mockup-trip-header">
+                    <span class="mockup-trip-badge">NEXT TRIP</span>
+                    <span class="mockup-trip-countdown">in 12 days</span>
+                  </div>
+                  <div class="mockup-trip-city">Lisbon, PT 🇵🇹</div>
+                  <div class="mockup-trip-dates">Apr 1 – Apr 30, 2026</div>
+                  <div class="mockup-trip-stats">
+                    <div class="mockup-mini-stat">
+                      <span class="mockup-mini-stat__icon">🛂</span>
+                      <span class="mockup-mini-stat__val mockup-mini-stat__val--green">Visa OK</span>
+                    </div>
+                    <div class="mockup-mini-stat">
+                      <span class="mockup-mini-stat__icon">📶</span>
+                      <span class="mockup-mini-stat__val">180 Mbps</span>
+                    </div>
+                    <div class="mockup-mini-stat">
+                      <span class="mockup-mini-stat__icon">💰</span>
+                      <span class="mockup-mini-stat__val">$1,420/mo</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Co-work list -->
+                <div class="mockup-section-label">NEARBY CO-WORKS</div>
+                <div class="mockup-cowork-list">
+                  <div class="mockup-cowork-item">
+                    <div class="mockup-cowork-info">
+                      <span class="mockup-cowork-dot mockup-cowork-dot--green"></span>
+                      <span class="mockup-cowork-name">Second Home Lisboa</span>
+                    </div>
+                    <div class="mockup-cowork-meta">
+                      <span class="mockup-speed">250 Mbps</span>
+                      <span class="mockup-price">€18/day</span>
+                    </div>
+                  </div>
+                  <div class="mockup-cowork-item">
+                    <div class="mockup-cowork-info">
+                      <span class="mockup-cowork-dot mockup-cowork-dot--teal"></span>
+                      <span class="mockup-cowork-name">Heden</span>
+                    </div>
+                    <div class="mockup-cowork-meta">
+                      <span class="mockup-speed">320 Mbps</span>
+                      <span class="mockup-price">€12/day</span>
+                    </div>
+                  </div>
+                  <div class="mockup-cowork-item">
+                    <div class="mockup-cowork-info">
+                      <span class="mockup-cowork-dot mockup-cowork-dot--purple"></span>
+                      <span class="mockup-cowork-name">Village Underground</span>
+                    </div>
+                    <div class="mockup-cowork-meta">
+                      <span class="mockup-speed">200 Mbps</span>
+                      <span class="mockup-price">€22/day</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Progress bar -->
+                <div class="mockup-progress-row">
+                  <span class="mockup-progress-label">Trip budget</span>
+                  <span class="mockup-progress-pct">62%</span>
+                </div>
+                <div class="mockup-progress-bar">
+                  <div class="mockup-progress-fill" style="width:62%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badges -->
+          <div class="mockup-float mockup-float--visa">
+            <span>🛂</span>
+            <div>
+              <strong>Visa approved</strong>
+              <span>30-day digital nomad</span>
+            </div>
+          </div>
+          <div class="mockup-float mockup-float--save">
+            <span>💸</span>
+            <div>
+              <strong>Saved $340</strong>
+              <span>vs last month</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero__scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ─── LOGOS ─────────────────────────────────────────── -->
+    <section class="logos">
+      <div class="container">
+        <p class="logos__label">Trusted by nomads working at</p>
+        <div class="logos__track">
+          <div class="logos__inner" id="logoTrack">
+            <span class="logo-item">Stripe</span>
+            <span class="logo-item">Shopify</span>
+            <span class="logo-item">Figma</span>
+            <span class="logo-item">Notion</span>
+            <span class="logo-item">Vercel</span>
+            <span class="logo-item">Linear</span>
+            <span class="logo-item">Loom</span>
+            <span class="logo-item">Miro</span>
+            <!-- duplicated for seamless loop -->
+            <span class="logo-item">Stripe</span>
+            <span class="logo-item">Shopify</span>
+            <span class="logo-item">Figma</span>
+            <span class="logo-item">Notion</span>
+            <span class="logo-item">Vercel</span>
+            <span class="logo-item">Linear</span>
+            <span class="logo-item">Loom</span>
+            <span class="logo-item">Miro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRESS ─────────────────────────────────────────── -->
+    <section class="press">
+      <div class="container press__inner">
+        <p class="press__label">As seen in</p>
+        <div class="press__logos">
+          <span class="press-item">Forbes</span>
+          <span class="press-item">TechCrunch</span>
+          <span class="press-item">Product Hunt</span>
+          <span class="press-item">Nomad List</span>
+          <span class="press-item">Remote.co</span>
+          <span class="press-item">The Verge</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES ──────────────────────────────────────── -->
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Everything you need</span>
+          <h2 class="section-title">Built for the future<br/>of work &amp; travel</h2>
+          <p class="section-sub">Six powerhouse modules, one seamless experience.</p>
+        </div>
+
+        <div class="features__grid">
+
+          <div class="feature-card feature-card--wide reveal">
+            <div class="feature-card__icon">🌍</div>
+            <h3>Visa &amp; Entry Intel</h3>
+            <p>Real-time visa requirements, processing times, and work-permit eligibility — all in one searchable map. No more digging through embassy websites.</p>
+            <div class="feature-card__tag">Live data</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">🏢</div>
+            <h3>Co-work Finder</h3>
+            <p>Filter by speed, price, vibe, and community. Book a hot desk in under 60 seconds.</p>
+            <div class="feature-card__tag">5,000+ spaces</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">💸</div>
+            <h3>Tax &amp; Invoice Hub</h3>
+            <p>Auto-categorise expenses, generate invoices, and export country-specific tax reports.</p>
+            <div class="feature-card__tag">Multi-currency</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">📡</div>
+            <h3>Connectivity Score</h3>
+            <p>Know the average download speed, best SIM cards, and backup connectivity options before you land.</p>
+            <div class="feature-card__tag">Crowd-sourced</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">🏠</div>
+            <h3>Curated Stays</h3>
+            <p>Apartments, coliving spaces, and hotels hand-picked for remote workers. Verify WiFi before booking.</p>
+            <div class="feature-card__tag">Work-ready</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card feature-card--wide reveal">
+            <div class="feature-card__icon">🤝</div>
+            <h3>Community &amp; Local Events</h3>
+            <p>Connect with fellow nomads, join skill-swap meetups, and discover gig-worker-friendly cafés — wherever you land. A city guide built by people who actually live the lifestyle.</p>
+            <div class="feature-card__tag">Global network</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DESTINATIONS ─────────────────────────────────── -->
+    <section class="destinations section" id="destinations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Top destinations</span>
+          <h2 class="section-title">The world is your<br/>office — pick a city</h2>
+          <p class="section-sub">Ranked by internet speed, affordability, and nomad community size.</p>
+        </div>
+
+        <div class="destinations__grid">
+
+          <div class="dest-card reveal">
+            <div class="dest-card__flag">🇵🇹</div>
+            <div class="dest-card__body">
+              <h3 class="dest-card__city">Lisbon</h3>
+              <span class="dest-card__country">Portugal</span>
+              <div class="dest-card__stats">
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">📶</span>
+                  <span class="dest-stat__val">180 Mbps avg</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">💰</span>
+                  <span class="dest-stat__val">$1,420/mo</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">🏢</span>
+                  <span class="dest-stat__val">210 co-works</span>
+                </div>
+              </div>
+              <div class="dest-card__tags">
+                <span class="dest-tag dest-tag--green">Visa-free (EU)</span>
+                <span class="dest-tag">D7 Visa</span>
+              </div>
+            </div>
+            <div class="dest-card__score">
+              <span class="dest-score">9.2</span>
+              <span class="dest-score-label">GigScore</span>
+            </div>
+          </div>
+
+          <div class="dest-card reveal">
+            <div class="dest-card__flag">🇮🇩</div>
+            <div class="dest-card__body">
+              <h3 class="dest-card__city">Bali</h3>
+              <span class="dest-card__country">Indonesia</span>
+              <div class="dest-card__stats">
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">📶</span>
+                  <span class="dest-stat__val">95 Mbps avg</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">💰</span>
+                  <span class="dest-stat__val">$990/mo</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">🏢</span>
+                  <span class="dest-stat__val">180 co-works</span>
+                </div>
+              </div>
+              <div class="dest-card__tags">
+                <span class="dest-tag">B211A Visa</span>
+                <span class="dest-tag dest-tag--teal">Top-rated</span>
+              </div>
+            </div>
+            <div class="dest-card__score">
+              <span class="dest-score">8.9</span>
+              <span class="dest-score-label">GigScore</span>
+            </div>
+          </div>
+
+          <div class="dest-card reveal">
+            <div class="dest-card__flag">🇨🇴</div>
+            <div class="dest-card__body">
+              <h3 class="dest-card__city">Medellín</h3>
+              <span class="dest-card__country">Colombia</span>
+              <div class="dest-card__stats">
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">📶</span>
+                  <span class="dest-stat__val">210 Mbps avg</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">💰</span>
+                  <span class="dest-stat__val">$870/mo</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">🏢</span>
+                  <span class="dest-stat__val">95 co-works</span>
+                </div>
+              </div>
+              <div class="dest-card__tags">
+                <span class="dest-tag dest-tag--green">90-day stay</span>
+                <span class="dest-tag">Spring weather</span>
+              </div>
+            </div>
+            <div class="dest-card__score">
+              <span class="dest-score">8.7</span>
+              <span class="dest-score-label">GigScore</span>
+            </div>
+          </div>
+
+          <div class="dest-card reveal">
+            <div class="dest-card__flag">🇹🇭</div>
+            <div class="dest-card__body">
+              <h3 class="dest-card__city">Chiang Mai</h3>
+              <span class="dest-card__country">Thailand</span>
+              <div class="dest-card__stats">
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">📶</span>
+                  <span class="dest-stat__val">150 Mbps avg</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">💰</span>
+                  <span class="dest-stat__val">$780/mo</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">🏢</span>
+                  <span class="dest-stat__val">120 co-works</span>
+                </div>
+              </div>
+              <div class="dest-card__tags">
+                <span class="dest-tag">LTR Visa</span>
+                <span class="dest-tag dest-tag--teal">Budget-friendly</span>
+              </div>
+            </div>
+            <div class="dest-card__score">
+              <span class="dest-score">8.5</span>
+              <span class="dest-score-label">GigScore</span>
+            </div>
+          </div>
+
+          <div class="dest-card reveal">
+            <div class="dest-card__flag">🇬🇪</div>
+            <div class="dest-card__body">
+              <h3 class="dest-card__city">Tbilisi</h3>
+              <span class="dest-card__country">Georgia</span>
+              <div class="dest-card__stats">
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">📶</span>
+                  <span class="dest-stat__val">280 Mbps avg</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">💰</span>
+                  <span class="dest-stat__val">$720/mo</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">🏢</span>
+                  <span class="dest-stat__val">65 co-works</span>
+                </div>
+              </div>
+              <div class="dest-card__tags">
+                <span class="dest-tag dest-tag--green">1-year stay</span>
+                <span class="dest-tag">Remoteli Visa</span>
+              </div>
+            </div>
+            <div class="dest-card__score">
+              <span class="dest-score">8.4</span>
+              <span class="dest-score-label">GigScore</span>
+            </div>
+          </div>
+
+          <div class="dest-card reveal">
+            <div class="dest-card__flag">🇲🇽</div>
+            <div class="dest-card__body">
+              <h3 class="dest-card__city">Mexico City</h3>
+              <span class="dest-card__country">Mexico</span>
+              <div class="dest-card__stats">
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">📶</span>
+                  <span class="dest-stat__val">120 Mbps avg</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">💰</span>
+                  <span class="dest-stat__val">$1,100/mo</span>
+                </div>
+                <div class="dest-stat">
+                  <span class="dest-stat__icon">🏢</span>
+                  <span class="dest-stat__val">250 co-works</span>
+                </div>
+              </div>
+              <div class="dest-card__tags">
+                <span class="dest-tag dest-tag--green">180-day stay</span>
+                <span class="dest-tag">Rich culture</span>
+              </div>
+            </div>
+            <div class="dest-card__score">
+              <span class="dest-score">8.3</span>
+              <span class="dest-score-label">GigScore</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="destinations__footer reveal">
+          <p>Showing top 6 of <strong>340+ destinations</strong> ranked in our database.</p>
+          <a href="#pricing" class="btn btn--ghost">
+            Explore all destinations
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── HOW IT WORKS ──────────────────────────────────── -->
+    <section class="steps section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple process</span>
+          <h2 class="section-title">From idea to<br/>next destination</h2>
+        </div>
+
+        <div class="steps__grid">
+          <div class="step reveal">
+            <div class="step__number">01</div>
+            <h3>Create your profile</h3>
+            <p>Tell us your gig stack, tax residency, and travel style. Takes under 3 minutes.</p>
+          </div>
+          <div class="step__connector reveal"></div>
+          <div class="step reveal">
+            <div class="step__number">02</div>
+            <h3>Pick your destination</h3>
+            <p>Browse a personalised map of destinations ranked for your specific needs.</p>
+          </div>
+          <div class="step__connector reveal"></div>
+          <div class="step reveal">
+            <div class="step__number">03</div>
+            <h3>Book &amp; go</h3>
+            <p>Reserve your stay, co-work desk, and airport transfer in one checkout flow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ──────────────────────────────────── -->
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Social proof</span>
+          <h2 class="section-title">Loved by nomads<br/>worldwide</h2>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p>"GigTravel cut my trip-planning time from 3 hours to 15 minutes. The visa tool alone is worth every cent."</p>
+            <div class="tcard__author">
+              <div class="tcard__avatar tcard__avatar--1">JK</div>
+              <div>
+                <strong>Jana Kovář</strong>
+                <span>UX Designer · Prague → Bali</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p>"The co-work finder is insanely good. Filtered by '300 Mbps+, standing desk, AC' and got 12 options in Lisbon instantly."</p>
+            <div class="tcard__author">
+              <div class="tcard__avatar tcard__avatar--2">MC</div>
+              <div>
+                <strong>Marco Conti</strong>
+                <span>Full-stack Dev · Remote-first</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p>"Finally a tool that gets the tax complexity of being a freelancer with clients in 5 countries. Saved me $4K last quarter."</p>
+            <div class="tcard__author">
+              <div class="tcard__avatar tcard__avatar--3">SL</div>
+              <div>
+                <strong>Sophie Laroche</strong>
+                <span>Marketing Consultant · Medellin</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRICING ───────────────────────────────────────── -->
+    <section class="pricing section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple pricing</span>
+          <h2 class="section-title">Invest in your freedom</h2>
+          <p class="section-sub">No surprise fees. Cancel any time.</p>
+        </div>
+
+        <div class="pricing__toggle">
+          <span class="toggle-label">Monthly</span>
+          <button class="toggle-btn" id="pricingToggle" aria-pressed="false" aria-label="Switch to annual billing">
+            <span class="toggle-thumb"></span>
+          </button>
+          <span class="toggle-label">Annual <em class="toggle-badge">Save 30%</em></span>
+        </div>
+
+        <div class="pricing__grid">
+
+          <div class="pcard reveal">
+            <div class="pcard__plan">Explorer</div>
+            <div class="pcard__price">
+              <span class="pcard__currency">$</span>
+              <span class="pcard__amount" data-monthly="0" data-annual="0">0</span>
+              <span class="pcard__period">/mo</span>
+            </div>
+            <p class="pcard__desc">Perfect for curious travellers testing the waters.</p>
+            <ul class="pcard__features">
+              <li><span class="check">✓</span> 3 destination searches/month</li>
+              <li><span class="check">✓</span> Basic visa info</li>
+              <li><span class="check">✓</span> Co-work map (10 results)</li>
+              <li><span class="check muted">✓</span> <span class="muted">Tax hub — not included</span></li>
+              <li><span class="check muted">✓</span> <span class="muted">Community access — not included</span></li>
+            </ul>
+            <a href="#" class="btn btn--ghost btn--full">Get started free</a>
+          </div>
+
+          <div class="pcard pcard--featured reveal">
+            <div class="pcard__badge">Most popular</div>
+            <div class="pcard__plan">Nomad</div>
+            <div class="pcard__price">
+              <span class="pcard__currency">$</span>
+              <span class="pcard__amount" data-monthly="19" data-annual="13">19</span>
+              <span class="pcard__period">/mo</span>
+            </div>
+            <p class="pcard__desc">Everything a full-time remote worker needs to thrive.</p>
+            <ul class="pcard__features">
+              <li><span class="check">✓</span> Unlimited destination searches</li>
+              <li><span class="check">✓</span> Full visa &amp; entry intel</li>
+              <li><span class="check">✓</span> Co-work finder (all 5,000+ spaces)</li>
+              <li><span class="check">✓</span> Tax &amp; invoice hub</li>
+              <li><span class="check">✓</span> Community &amp; events access</li>
+            </ul>
+            <a href="#" class="btn btn--primary btn--full">Start 14-day trial</a>
+            <div class="pcard__glow"></div>
+          </div>
+
+          <div class="pcard reveal">
+            <div class="pcard__plan">Pro</div>
+            <div class="pcard__price">
+              <span class="pcard__currency">$</span>
+              <span class="pcard__amount" data-monthly="49" data-annual="34">49</span>
+              <span class="pcard__period">/mo</span>
+            </div>
+            <p class="pcard__desc">For power users, teams, and frequent flyers.</p>
+            <ul class="pcard__features">
+              <li><span class="check">✓</span> Everything in Nomad</li>
+              <li><span class="check">✓</span> Team seats (up to 5)</li>
+              <li><span class="check">✓</span> Priority co-work booking</li>
+              <li><span class="check">✓</span> Dedicated tax advisor (2 hrs/mo)</li>
+              <li><span class="check">✓</span> White-glove onboarding</li>
+            </ul>
+            <a href="#" class="btn btn--ghost btn--full">Get Pro</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ──────────────────────────────────────────── -->
+    <section class="faq section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Got questions?</span>
+          <h2 class="section-title">Frequently asked<br/>questions</h2>
+        </div>
+
+        <div class="faq__grid">
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>Do I need to commit to a subscription?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>No. GigTravel runs on a monthly subscription with no minimum term. You can cancel, pause, or downgrade at any time from your account dashboard — no forms, no phone calls.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>How accurate is the visa information?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>We pull data from official government sources and update it daily. All entries include a "last verified" timestamp. For complex scenarios (e.g., dual citizenship, specific professions), we always recommend confirming with the embassy directly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>What currencies and tax jurisdictions do you support?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>The Tax &amp; Invoice Hub handles 150+ currencies, auto-detects exchange rates, and generates export-ready reports for 80+ tax jurisdictions including the US, EU member states, UK, Canada, Australia, and more. New jurisdictions are added every quarter.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>Can I use GigTravel for my whole team?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>Yes! The Pro plan includes 5 team seats and a shared team dashboard. For larger teams (5+), contact us for a custom Enterprise quote — including consolidated billing, admin controls, and a dedicated account manager.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>Does GigTravel book travel or just provide information?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>Both. You can browse destination intel for free, then book co-working spaces, curated apartments, and airport transfers directly through the platform. We handle payment securely and send all receipts to your invoice hub automatically.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>Is my financial data secure?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>Absolutely. We are SOC 2 Type II certified, all data is encrypted at rest (AES-256) and in transit (TLS 1.3). Payment processing is handled by Stripe — we never store raw card data. You can export and delete your data at any time.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <button class="faq-item__q" aria-expanded="false">
+              <span>What happens after the 14-day free trial?</span>
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__a">
+              <p>You'll automatically move to the free Explorer plan unless you choose to continue with Nomad or Pro. We'll remind you 3 days before your trial ends. No credit card is required to start the trial.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA BANNER ────────────────────────────────────── -->
+    <section class="cta-banner section">
+      <div class="container">
+        <div class="cta-banner__inner reveal">
+          <div class="cta-banner__glow"></div>
+          <span class="section-tag">Ready to go?</span>
+          <h2>Your next chapter<br/>starts with one click.</h2>
+          <p>Join 48,000 nomads who have already traded the commute for the world.</p>
+          <form class="cta-form" id="ctaForm" novalidate>
+            <div class="cta-form__group">
+              <input
+                class="cta-form__input"
+                type="email"
+                id="ctaEmail"
+                name="email"
+                placeholder="Enter your work email"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="btn btn--primary btn--lg cta-form__submit">
+                Get early access
+                <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <p class="cta-form__note" id="ctaFormNote"></p>
+          </form>
+          <p class="cta-banner__fine">No credit card required · Cancel anytime · 14-day free trial on all paid plans</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <span class="logo-icon">✈</span>
+          GigTravel
+        </a>
+        <p>The all-in-one platform for gig workers who refuse to stay put.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Twitter/X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">◉</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Changelog</a>
+        <a href="#">Roadmap</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>&copy; 2026 GigTravel, Inc. All rights reserved.</p>
+      <p>Made with ♥ for the borderless generation.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
