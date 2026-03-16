@@ -60,7 +60,7 @@ export default function AccommodationDetailPage() {
     setBookingResult(null);
     try {
       const result = await bookAccommodation({
-        accommodation_id: Number(id),
+        accommodation_id: id,
         check_in: checkIn,
         check_out: checkOut,
         user_email: email,
