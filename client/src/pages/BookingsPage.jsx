@@ -32,9 +32,10 @@ export default function BookingsPage() {
     }
   }
 
-  const ticketBookings = bookings?.ticket_bookings || bookings?.tickets || [];
-  const accommodationBookings = bookings?.accommodation_bookings || bookings?.accommodations || [];
-  const hasBookings = ticketBookings.length > 0 || accommodationBookings.length > 0;
+  const allBookings = Array.isArray(bookings) ? bookings : [];
+  const ticketBookings = allBookings.filter((b) => b.type === 'ticket');
+  const accommodationBookings = allBookings.filter((b) => b.type === 'accommodation');
+  const hasBookings = allBookings.length > 0;
 
   return (
     <>
@@ -85,18 +86,16 @@ export default function BookingsPage() {
                   <div key={b.id || i} className="booking-card">
                     <div className="booking-card-header">
                       <div>
-                        <strong>{b.event_title || b.event_name || 'Event'}</strong>
-                        {b.ticket_type && <span className="text-muted"> — {b.ticket_type}</span>}
+                        <strong>🎫 Ticket Booking</strong>
                       </div>
                       <span className={`tag tag-status ${(b.status || 'confirmed').toLowerCase()}`}>
                         {b.status || 'Confirmed'}
                       </span>
                     </div>
                     <div className="booking-card-details">
-                      <span>📅 {formatDate(b.event_date || b.date)}</span>
                       <span>🎫 Qty: {b.quantity || 1}</span>
-                      {b.total_price && <span>💰 {b.currency === 'USD' ? '$' : b.currency === 'GBP' ? '£' : b.currency === 'CAD' ? 'C$' : '€'}{Number(b.total_price).toFixed(2)}</span>}
-                      {b.booking_date && <span>🗓️ Booked: {formatDate(b.booking_date)}</span>}
+                      {b.total_price != null && <span>💰 {b.currency === 'USD' ? '$' : b.currency === 'GBP' ? '£' : b.currency === 'CAD' ? 'C$' : '€'}{Number(b.total_price).toFixed(2)}</span>}
+                      {b.created_at && <span>🗓️ Booked: {formatDate(b.created_at)}</span>}
                     </div>
                   </div>
                 ))}
@@ -111,16 +110,15 @@ export default function BookingsPage() {
                 {accommodationBookings.map((b, i) => (
                   <div key={b.id || i} className="booking-card">
                     <div className="booking-card-header">
-                      <strong>{b.accommodation_name || b.name || 'Accommodation'}</strong>
+                      <strong>🏨 Accommodation Booking</strong>
                       <span className={`tag tag-status ${(b.status || 'confirmed').toLowerCase()}`}>
                         {b.status || 'Confirmed'}
                       </span>
                     </div>
                     <div className="booking-card-details">
-                      <span>📍 {b.city || '—'}</span>
                       <span>📅 {formatDate(b.check_in)} → {formatDate(b.check_out)}</span>
-                      {b.total_price && <span>💰 €{Number(b.total_price).toFixed(2)}</span>}
-                      {b.booking_date && <span>🗓️ Booked: {formatDate(b.booking_date)}</span>}
+                      {b.total_price != null && <span>💰 {b.currency === 'USD' ? '$' : b.currency === 'GBP' ? '£' : b.currency === 'CAD' ? 'C$' : '€'}{Number(b.total_price).toFixed(2)}</span>}
+                      {b.created_at && <span>🗓️ Booked: {formatDate(b.created_at)}</span>}
                     </div>
                   </div>
                 ))}
