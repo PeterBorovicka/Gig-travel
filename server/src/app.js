@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const rateLimit = require('express-rate-limit');
 const venuesRouter = require('./routes/venues');
 const eventsRouter = require('./routes/events');
 const accommodationsRouter = require('./routes/accommodations');
@@ -11,6 +12,15 @@ function createApp() {
 
   app.use(cors());
   app.use(express.json());
+
+  // Rate limiting
+  const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+  });
+  app.use('/api/', apiLimiter);
 
   // API routes
   app.use('/api/venues', venuesRouter);
