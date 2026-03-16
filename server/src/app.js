@@ -20,7 +20,7 @@ function createApp() {
     standardHeaders: true,
     legacyHeaders: false,
   });
-  app.use('/api/', apiLimiter);
+  app.use(apiLimiter);
 
   // API routes
   app.use('/api/venues', venuesRouter);
