@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GigTravel — Work From Anywhere, Effortlessly</title>
+  <meta name="description" content="The all-in-one platform for gig workers to find, book, and thrive in remote-friendly destinations worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#" class="nav__logo">
+        <span class="logo-icon">✈</span>
+        GigTravel
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Reviews</a>
+      </nav>
+      <div class="nav__cta">
+        <a href="#pricing" class="btn btn--ghost">Log in</a>
+        <a href="#pricing" class="btn btn--primary">Get started free</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ──────────────────────────────────────────── -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__glow hero__glow--left"></div>
+      <div class="hero__glow hero__glow--right"></div>
+
+      <div class="container hero__content">
+        <div class="hero__badge">
+          <span class="badge-dot"></span>
+          Now supporting 120+ countries &amp; territories
+        </div>
+
+        <h1 class="hero__headline">
+          <span class="headline-line" data-line="1">Work remotely.</span>
+          <span class="headline-line gradient-text" data-line="2">Live boldly.</span>
+          <span class="headline-line" data-line="3">Travel smart.</span>
+        </h1>
+
+        <p class="hero__sub">
+          GigTravel pairs gig workers with visa intel, co-working spaces, tax tools,
+          and curated stays — all in one gorgeous dashboard.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#pricing" class="btn btn--primary btn--lg">
+            Start your journey
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#how-it-works" class="btn btn--ghost btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M10 8l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            See how it works
+          </a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__num" data-target="48000">0</span>
+            <span class="stat__label">Active nomads</span>
+          </div>
+          <div class="stat__divider"></div>
+          <div class="stat">
+            <span class="stat__num" data-target="120">0</span>
+            <span class="stat__label">Countries covered</span>
+          </div>
+          <div class="stat__divider"></div>
+          <div class="stat">
+            <span class="stat__num" data-target="98">0</span>
+            <span class="stat__label">% satisfaction rate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ─── LOGOS ─────────────────────────────────────────── -->
+    <section class="logos">
+      <div class="container">
+        <p class="logos__label">Trusted by nomads working at</p>
+        <div class="logos__track">
+          <div class="logos__inner" id="logoTrack">
+            <span class="logo-item">Stripe</span>
+            <span class="logo-item">Shopify</span>
+            <span class="logo-item">Figma</span>
+            <span class="logo-item">Notion</span>
+            <span class="logo-item">Vercel</span>
+            <span class="logo-item">Linear</span>
+            <span class="logo-item">Loom</span>
+            <span class="logo-item">Miro</span>
+            <!-- duplicated for seamless loop -->
+            <span class="logo-item">Stripe</span>
+            <span class="logo-item">Shopify</span>
+            <span class="logo-item">Figma</span>
+            <span class="logo-item">Notion</span>
+            <span class="logo-item">Vercel</span>
+            <span class="logo-item">Linear</span>
+            <span class="logo-item">Loom</span>
+            <span class="logo-item">Miro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES ──────────────────────────────────────── -->
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Everything you need</span>
+          <h2 class="section-title">Built for the future<br/>of work &amp; travel</h2>
+          <p class="section-sub">Six powerhouse modules, one seamless experience.</p>
+        </div>
+
+        <div class="features__grid">
+
+          <div class="feature-card feature-card--wide reveal">
+            <div class="feature-card__icon">🌍</div>
+            <h3>Visa &amp; Entry Intel</h3>
+            <p>Real-time visa requirements, processing times, and work-permit eligibility — all in one searchable map. No more digging through embassy websites.</p>
+            <div class="feature-card__tag">Live data</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">🏢</div>
+            <h3>Co-work Finder</h3>
+            <p>Filter by speed, price, vibe, and community. Book a hot desk in under 60 seconds.</p>
+            <div class="feature-card__tag">5,000+ spaces</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">💸</div>
+            <h3>Tax &amp; Invoice Hub</h3>
+            <p>Auto-categorise expenses, generate invoices, and export country-specific tax reports.</p>
+            <div class="feature-card__tag">Multi-currency</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">📡</div>
+            <h3>Connectivity Score</h3>
+            <p>Know the average download speed, best SIM cards, and backup connectivity options before you land.</p>
+            <div class="feature-card__tag">Crowd-sourced</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">🏠</div>
+            <h3>Curated Stays</h3>
+            <p>Apartments, coliving spaces, and hotels hand-picked for remote workers. Verify WiFi before booking.</p>
+            <div class="feature-card__tag">Work-ready</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+          <div class="feature-card feature-card--wide reveal">
+            <div class="feature-card__icon">🤝</div>
+            <h3>Community &amp; Local Events</h3>
+            <p>Connect with fellow nomads, join skill-swap meetups, and discover gig-worker-friendly cafés — wherever you land. A city guide built by people who actually live the lifestyle.</p>
+            <div class="feature-card__tag">Global network</div>
+            <div class="feature-card__glow"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── HOW IT WORKS ──────────────────────────────────── -->
+    <section class="steps section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple process</span>
+          <h2 class="section-title">From idea to<br/>next destination</h2>
+        </div>
+
+        <div class="steps__grid">
+          <div class="step reveal">
+            <div class="step__number">01</div>
+            <h3>Create your profile</h3>
+            <p>Tell us your gig stack, tax residency, and travel style. Takes under 3 minutes.</p>
+          </div>
+          <div class="step__connector reveal"></div>
+          <div class="step reveal">
+            <div class="step__number">02</div>
+            <h3>Pick your destination</h3>
+            <p>Browse a personalised map of destinations ranked for your specific needs.</p>
+          </div>
+          <div class="step__connector reveal"></div>
+          <div class="step reveal">
+            <div class="step__number">03</div>
+            <h3>Book &amp; go</h3>
+            <p>Reserve your stay, co-work desk, and airport transfer in one checkout flow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ──────────────────────────────────── -->
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Social proof</span>
+          <h2 class="section-title">Loved by nomads<br/>worldwide</h2>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p>"GigTravel cut my trip-planning time from 3 hours to 15 minutes. The visa tool alone is worth every cent."</p>
+            <div class="tcard__author">
+              <div class="tcard__avatar tcard__avatar--1">JK</div>
+              <div>
+                <strong>Jana Kovář</strong>
+                <span>UX Designer · Prague → Bali</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p>"The co-work finder is insanely good. Filtered by '300 Mbps+, standing desk, AC' and got 12 options in Lisbon instantly."</p>
+            <div class="tcard__author">
+              <div class="tcard__avatar tcard__avatar--2">MC</div>
+              <div>
+                <strong>Marco Conti</strong>
+                <span>Full-stack Dev · Remote-first</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p>"Finally a tool that gets the tax complexity of being a freelancer with clients in 5 countries. Saved me $4K last quarter."</p>
+            <div class="tcard__author">
+              <div class="tcard__avatar tcard__avatar--3">SL</div>
+              <div>
+                <strong>Sophie Laroche</strong>
+                <span>Marketing Consultant · Medellin</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRICING ───────────────────────────────────────── -->
+    <section class="pricing section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple pricing</span>
+          <h2 class="section-title">Invest in your freedom</h2>
+          <p class="section-sub">No surprise fees. Cancel any time.</p>
+        </div>
+
+        <div class="pricing__toggle">
+          <span class="toggle-label">Monthly</span>
+          <button class="toggle-btn" id="pricingToggle" aria-pressed="false" aria-label="Switch to annual billing">
+            <span class="toggle-thumb"></span>
+          </button>
+          <span class="toggle-label">Annual <em class="toggle-badge">Save 30%</em></span>
+        </div>
+
+        <div class="pricing__grid">
+
+          <div class="pcard reveal">
+            <div class="pcard__plan">Explorer</div>
+            <div class="pcard__price">
+              <span class="pcard__currency">$</span>
+              <span class="pcard__amount" data-monthly="0" data-annual="0">0</span>
+              <span class="pcard__period">/mo</span>
+            </div>
+            <p class="pcard__desc">Perfect for curious travellers testing the waters.</p>
+            <ul class="pcard__features">
+              <li><span class="check">✓</span> 3 destination searches/month</li>
+              <li><span class="check">✓</span> Basic visa info</li>
+              <li><span class="check">✓</span> Co-work map (10 results)</li>
+              <li><span class="check muted">✓</span> <span class="muted">Tax hub — not included</span></li>
+              <li><span class="check muted">✓</span> <span class="muted">Community access — not included</span></li>
+            </ul>
+            <a href="#" class="btn btn--ghost btn--full">Get started free</a>
+          </div>
+
+          <div class="pcard pcard--featured reveal">
+            <div class="pcard__badge">Most popular</div>
+            <div class="pcard__plan">Nomad</div>
+            <div class="pcard__price">
+              <span class="pcard__currency">$</span>
+              <span class="pcard__amount" data-monthly="19" data-annual="13">19</span>
+              <span class="pcard__period">/mo</span>
+            </div>
+            <p class="pcard__desc">Everything a full-time remote worker needs to thrive.</p>
+            <ul class="pcard__features">
+              <li><span class="check">✓</span> Unlimited destination searches</li>
+              <li><span class="check">✓</span> Full visa &amp; entry intel</li>
+              <li><span class="check">✓</span> Co-work finder (all 5,000+ spaces)</li>
+              <li><span class="check">✓</span> Tax &amp; invoice hub</li>
+              <li><span class="check">✓</span> Community &amp; events access</li>
+            </ul>
+            <a href="#" class="btn btn--primary btn--full">Start 14-day trial</a>
+            <div class="pcard__glow"></div>
+          </div>
+
+          <div class="pcard reveal">
+            <div class="pcard__plan">Pro</div>
+            <div class="pcard__price">
+              <span class="pcard__currency">$</span>
+              <span class="pcard__amount" data-monthly="49" data-annual="34">49</span>
+              <span class="pcard__period">/mo</span>
+            </div>
+            <p class="pcard__desc">For power users, teams, and frequent flyers.</p>
+            <ul class="pcard__features">
+              <li><span class="check">✓</span> Everything in Nomad</li>
+              <li><span class="check">✓</span> Team seats (up to 5)</li>
+              <li><span class="check">✓</span> Priority co-work booking</li>
+              <li><span class="check">✓</span> Dedicated tax advisor (2 hrs/mo)</li>
+              <li><span class="check">✓</span> White-glove onboarding</li>
+            </ul>
+            <a href="#" class="btn btn--ghost btn--full">Get Pro</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA BANNER ────────────────────────────────────── -->
+    <section class="cta-banner section">
+      <div class="container">
+        <div class="cta-banner__inner reveal">
+          <div class="cta-banner__glow"></div>
+          <span class="section-tag">Ready to go?</span>
+          <h2>Your next chapter<br/>starts with one click.</h2>
+          <p>Join 48,000 nomads who have already traded the commute for the world.</p>
+          <a href="#pricing" class="btn btn--primary btn--lg">
+            Create free account
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0-3-3m3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <span class="logo-icon">✈</span>
+          GigTravel
+        </a>
+        <p>The all-in-one platform for gig workers who refuse to stay put.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Twitter/X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">◉</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#">Changelog</a>
+        <a href="#">Roadmap</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>&copy; 2026 GigTravel, Inc. All rights reserved.</p>
+      <p>Made with ♥ for the borderless generation.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
