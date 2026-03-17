@@ -6,6 +6,7 @@ const venuesRouter = require('./routes/venues');
 const eventsRouter = require('./routes/events');
 const accommodationsRouter = require('./routes/accommodations');
 const bookingsRouter = require('./routes/bookings');
+const aiRouter = require('./routes/ai');
 
 function createApp() {
   const app = express();
@@ -27,6 +28,7 @@ function createApp() {
   app.use('/api/events', eventsRouter);
   app.use('/api/accommodations', accommodationsRouter);
   app.use('/api/bookings', bookingsRouter);
+  app.use('/api/ai', aiRouter);
 
   // Health check
   app.get('/api/health', (req, res) => {
