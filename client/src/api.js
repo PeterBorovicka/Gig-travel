@@ -62,3 +62,14 @@ export function bookAccommodation({ accommodation_id, check_in, check_out, user_
 export function getBookings(email) {
   return request(`/bookings/${encodeURIComponent(email)}`);
 }
+
+export function getAiStatus() {
+  return request('/ai/status');
+}
+
+export function chatWithAssistant(message, history = []) {
+  return request('/ai/chat', {
+    method: 'POST',
+    body: JSON.stringify({ message, history }),
+  });
+}

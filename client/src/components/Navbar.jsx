@@ -23,6 +23,7 @@ export default function Navbar() {
           <NavLink to="/events" onClick={() => setOpen(false)}>🎫 Events</NavLink>
           <NavLink to="/venues" onClick={() => setOpen(false)}>🎤 Venues</NavLink>
           <NavLink to="/accommodations" onClick={() => setOpen(false)}>🏨 Stays</NavLink>
+          <NavLink to="/assistant" onClick={() => setOpen(false)}>🤖 AI Assistant</NavLink>
           <NavLink to="/bookings" onClick={() => setOpen(false)}>📋 Bookings</NavLink>
         </div>
       </div>

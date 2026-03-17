@@ -9,6 +9,7 @@ import VenueDetailPage from './pages/VenueDetailPage';
 import AccommodationsPage from './pages/AccommodationsPage';
 import AccommodationDetailPage from './pages/AccommodationDetailPage';
 import BookingsPage from './pages/BookingsPage';
+import AiAssistantPage from './pages/AiAssistantPage';
 import './App.css';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/accommodations" element={<AccommodationsPage />} />
           <Route path="/accommodations/:id" element={<AccommodationDetailPage />} />
           <Route path="/bookings" element={<BookingsPage />} />
+          <Route path="/assistant" element={<AiAssistantPage />} />
         </Routes>
       </main>
       <Footer />
