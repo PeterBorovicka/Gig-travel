@@ -160,7 +160,7 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <div className="cta-section">
-            <h2>🎵 Ready for Your Next Gig?</h2>
+            <h2>🎵 Ready for Your Next Show?</h2>
             <p>
               Find a show, grab tickets, and book a hotel — all in one click.
             </p>
