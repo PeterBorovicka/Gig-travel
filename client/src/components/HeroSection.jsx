@@ -16,23 +16,22 @@ export default function HeroSection() {
     <section className="hero">
       <div className="hero-content">
         <h1>
-          Discover <span className="highlight">Live Events</span> &amp; Travel
-          the World 🌍
+          Pick a Show. <span className="highlight">Book Everything.</span>
         </h1>
         <p>
-          Find concerts, festivals, and shows worldwide. Book tickets and
-          accommodations — all in one place.
+          Tickets, hotel, and travel — sorted in one click so you never miss
+          a gig.
         </p>
         <form className="hero-search" onSubmit={handleSearch}>
           <input
             type="text"
             className="form-input"
-            placeholder="Search events, artists, cities..."
+            placeholder="Search artists, shows, or cities..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <button type="submit" className="btn btn-accent">
-            🔍 Search
+            🔍 Find Shows
           </button>
         </form>
       </div>

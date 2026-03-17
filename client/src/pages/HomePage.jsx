@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
-import { getEvents, getVenues, getAccommodations } from '../api';
+import { getEvents, getAccommodations } from '../api';
 
 function formatDate(dateStr) {
   if (!dateStr) return '';
@@ -26,20 +26,17 @@ function Stars({ rating }) {
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
-  const [venues, setVenues] = useState([]);
   const [accommodations, setAccommodations] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function load() {
       try {
-        const [ev, ve, ac] = await Promise.all([
+        const [ev, ac] = await Promise.all([
           getEvents(),
-          getVenues(),
           getAccommodations(),
         ]);
         setEvents(Array.isArray(ev) ? ev.slice(0, 6) : []);
-        setVenues(Array.isArray(ve) ? ve.slice(0, 6) : []);
         setAccommodations(Array.isArray(ac) ? ac.slice(0, 6) : []);
       } catch {
         /* non-critical — sections will be empty */
@@ -57,9 +54,9 @@ export default function HomePage() {
       {/* Featured Events */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title">🎫 Featured Events</h2>
+          <h2 className="section-title">🎫 Upcoming Shows</h2>
           <p className="section-subtitle">
-            The hottest concerts & festivals happening soon
+            Pick a show — we'll help you sort tickets and a place to stay
           </p>
 
           {loading ? (
@@ -79,6 +76,7 @@ export default function HomePage() {
                       {ev.city && <span>📍 {ev.city}</span>}
                       {ev.genre && <span className="tag tag-genre">{ev.genre}</span>}
                     </div>
+                    <span className="card-cta">Tickets + Hotel →</span>
                   </div>
                 </Link>
               ))}
@@ -86,50 +84,42 @@ export default function HomePage() {
           )}
 
           <div className="text-center mt-3">
-            <Link to="/events" className="btn btn-secondary">View All Events →</Link>
+            <Link to="/events" className="btn btn-secondary">View All Shows →</Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Venues */}
+      {/* How It Works */}
       <section className="section" style={{ background: 'var(--bg-card)' }}>
         <div className="container">
-          <h2 className="section-title">🎤 Popular Venues</h2>
-          <p className="section-subtitle">Iconic stages around the world</p>
-
-          {loading ? (
-            <div className="loading"><div className="spinner" /></div>
-          ) : venues.length === 0 ? (
-            <div className="empty-state"><div className="emoji">🏟️</div><p>No venues yet</p></div>
-          ) : (
-            <div className="grid grid-3">
-              {venues.map((v) => (
-                <Link to={`/venues/${v.id}`} key={v.id} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <div className="card-image">🏟️</div>
-                  <div className="card-body">
-                    <h3 className="card-title">{v.name}</h3>
-                    <div className="card-meta">
-                      <span>📍 {v.city}{v.country ? `, ${v.country}` : ''}</span>
-                      {v.capacity && <span>👥 {v.capacity.toLocaleString()}</span>}
-                    </div>
-                  </div>
-                </Link>
-              ))}
+          <h2 className="section-title">How It Works</h2>
+          <p className="section-subtitle">From lineup announcement to check-in — three steps</p>
+          <div className="grid grid-3">
+            <div className="detail-box text-center">
+              <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🎵</div>
+              <h3>1. Find Your Show</h3>
+              <p className="text-muted">Search by artist, genre, or city to find the gig you want.</p>
             </div>
-          )}
-
-          <div className="text-center mt-3">
-            <Link to="/venues" className="btn btn-secondary">View All Venues →</Link>
+            <div className="detail-box text-center">
+              <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🎫</div>
+              <h3>2. Grab Tickets</h3>
+              <p className="text-muted">Choose General Admission, VIP, or Premium — right on the event page.</p>
+            </div>
+            <div className="detail-box text-center">
+              <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>🏨</div>
+              <h3>3. Book a Stay</h3>
+              <p className="text-muted">Hotels near the venue are listed alongside your tickets — book in one click.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Accommodations */}
+      {/* Where to Stay */}
       <section className="section">
         <div className="container">
           <h2 className="section-title">🏨 Where to Stay</h2>
           <p className="section-subtitle">
-            Hand-picked accommodations near the best venues
+            Hotels near the best venues — also shown on every event page
           </p>
 
           {loading ? (
@@ -170,13 +160,12 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <div className="cta-section">
-            <h2>🗺️ Ready for Your Next Adventure?</h2>
+            <h2>🎵 Ready for Your Next Gig?</h2>
             <p>
-              Browse events, book tickets, and find the perfect place to stay —
-              all with secure Stripe payments.
+              Find a show, grab tickets, and book a hotel — all in one click.
             </p>
             <Link to="/events" className="btn btn-lg">
-              Explore Events 🎵
+              Browse Shows 🎫
             </Link>
           </div>
         </div>

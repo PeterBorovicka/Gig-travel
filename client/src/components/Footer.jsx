@@ -9,8 +9,7 @@ export default function Footer() {
             🎵 <span>Gig Travel</span>
           </Link>
           <p>
-            Discover live events worldwide and book your perfect trip — concerts,
-            festivals, accommodations, all in one place.
+            Pick a show, grab your tickets, and book a hotel — all in one click.
           </p>
         </div>
 

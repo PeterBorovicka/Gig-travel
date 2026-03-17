@@ -1,7 +1,7 @@
 {
   "name": "gig-travel",
   "version": "1.0.0",
-  "description": "Gig Travel - Full-stack web app for live events, ticket sales, venue discovery, and accommodation bookings with Stripe payments",
+  "description": "One-click show tickets and hotel booking for music fans",
   "private": true,
   "scripts": {
     "dev:server": "cd server && npm run dev",
