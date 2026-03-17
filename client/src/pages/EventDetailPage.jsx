@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getEvent, bookTicket } from '../api';
+import { getEvent, getAccommodations, bookTicket } from '../api';
 
 const CURRENCY_SYMBOLS = { EUR: '€', USD: '$', GBP: '£', CAD: 'C$' };
 
@@ -37,6 +37,7 @@ export default function EventDetailPage() {
   const [booking, setBooking] = useState(false);
   const [bookingResult, setBookingResult] = useState(null);
   const [bookingError, setBookingError] = useState(null);
+  const [nearbyStays, setNearbyStays] = useState([]);
 
   useEffect(() => {
     async function load() {
@@ -46,6 +47,14 @@ export default function EventDetailPage() {
         const data = await getEvent(id);
         setEvent(data);
         setTickets(Array.isArray(data.tickets) ? data.tickets : []);
+        if (data.city) {
+          try {
+            const stays = await getAccommodations({ city: data.city });
+            setNearbyStays(Array.isArray(stays) ? stays.slice(0, 3) : []);
+          } catch {
+            /* non-critical */
+          }
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -240,15 +249,41 @@ export default function EventDetailPage() {
 
               {event.city && (
                 <div className="detail-box">
-                  <h3>🏨 Nearby Stays</h3>
+                  <h3>🏨 Complete Your Trip</h3>
                   <p className="text-muted mb-2">
-                    Find a place to stay in {event.city}
+                    Places to stay in {event.city}
                   </p>
+                  {nearbyStays.length > 0 ? (
+                    <div className="trip-stays-list">
+                      {nearbyStays.map((s) => (
+                        <Link
+                          key={s.id}
+                          to={`/accommodations/${s.id}`}
+                          className="trip-stay-card"
+                        >
+                          <div className="trip-stay-info">
+                            <strong>{s.name}</strong>
+                            {s.rating && (
+                              <span className="stars">
+                                {'★'.repeat(Math.floor(s.rating))}
+                                {'☆'.repeat(5 - Math.floor(s.rating))}
+                              </span>
+                            )}
+                          </div>
+                          <div className="trip-stay-price">
+                            {fmtPrice(s.price_per_night, s.currency)}/night
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-muted">No stays found nearby.</p>
+                  )}
                   <Link
                     to={`/accommodations?city=${encodeURIComponent(event.city)}`}
-                    className="btn btn-secondary btn-block"
+                    className="btn btn-secondary btn-block mt-2"
                   >
-                    Browse Accommodations →
+                    View All Stays in {event.city} →
                   </Link>
                 </div>
               )}

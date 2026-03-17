@@ -1,16 +1,26 @@
 # Gig Travel 🎵🌍
 
-A full-stack web application for discovering live events, purchasing tickets, exploring venues, and booking accommodations worldwide — with integrated Stripe payments for Europe and North America.
+**One click from the show to your seat, your room, and your ride.**
+
+Gig Travel is for the music fan who sees a concert announcement and wants to
+book *everything* — tickets, accommodation, and travel — in a single flow.
+Pick a show, choose your tier, find a nearby hotel, and check out once.
+
+## How It Works
+
+1. **Find a show** — Search by artist, genre, or city.
+2. **Grab your tickets** — General Admission, VIP, or Premium.
+3. **Complete your trip** — The event page surfaces nearby hotels so you can
+   book a room right alongside your tickets.
+4. **Pay once** — Secure Stripe checkout for every part of the trip.
 
 ## Features
 
-- **🎫 Event Discovery & Tickets** — Browse concerts, festivals, and shows worldwide. Purchase tickets with multiple tiers (General Admission, VIP, Premium).
-- **🎤 Venue Explorer** — Discover iconic venues across Europe and North America (O2 Arena, Madison Square Garden, Ziggo Dome, and more).
-- **🏨 Accommodation Booking** — Find and book hotels near event venues with date selection and price calculation.
-- **💳 Stripe Payment Integration** — Secure payments supporting Visa, Mastercard, Apple Pay, and Google Pay — the dominant payment methods in Europe and North America.
-- **📋 Booking Management** — Look up and track all your ticket and accommodation bookings.
-- **🔍 Search & Filtering** — Filter events by genre, city, and artist. Filter accommodations by city, country, and price range.
-- **📱 Responsive Design** — Mobile-first, modern UI that works across all devices.
+- **🎫 One-Click Show + Stay** — Buy tickets and book a hotel from the same event page.
+- **🔍 Discover Events** — Browse concerts and festivals across Europe and North America.
+- **🏨 Nearby Accommodations** — Hotels near the venue are surfaced automatically.
+- **💳 Stripe Payments** — Visa, Mastercard, Apple Pay, Google Pay.
+- **📋 My Bookings** — Look up all your trip details with an email address.
 
 ## Tech Stack
 
@@ -80,10 +90,10 @@ The built files are served by Express in production mode.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/venues` | List venues (filter: city, country, search) |
-| GET | `/api/venues/:id` | Venue details with events |
 | GET | `/api/events` | List events (filter: genre, city, date, search) |
 | GET | `/api/events/:id` | Event details with ticket types |
+| GET | `/api/venues` | List venues (filter: city, country, search) |
+| GET | `/api/venues/:id` | Venue details with events |
 | GET | `/api/accommodations` | List accommodations (filter: city, price range) |
 | GET | `/api/accommodations/:id` | Accommodation details |
 | POST | `/api/bookings/tickets` | Purchase event tickets |
@@ -92,7 +102,7 @@ The built files are served by Express in production mode.
 
 ## Supported Markets
 
-The platform focuses on **Europe and North America** with:
-- Multi-currency support (EUR, USD, GBP, CAD)
-- Venues in London, New York, Amsterdam, Paris, Toronto, Berlin
-- Stripe as primary payment processor (dominant in EU/NA markets)
+Europe and North America:
+- Currencies: EUR, USD, GBP, CAD
+- Cities: London, New York, Amsterdam, Paris, Toronto, Berlin
+- Payments: Stripe (dominant processor in both regions)
